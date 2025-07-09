@@ -1,0 +1,139 @@
+CREATE TABLE Category (
+    CategoryID NUMBER PRIMARY KEY,
+    CategoryName VARCHAR2(50)
+);
+
+INSERT INTO Category (CategoryID, CategoryName) VALUES (201, 'Rice & Grains');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (202, 'Spices & Condiments');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (203, 'Vegetables');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (204, 'Fruits');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (205, 'Dairy Products');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (206, 'Meat and Poultry');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (207, 'Sea food');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (208, 'Snack and Sweets');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (209, 'Frozen Food');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (210, 'Beverages');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (211, 'Bakery and Confectionary');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (212, 'Baking ingredients');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (213, 'Pasta and noodles');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (214, 'Sauces and Pickles');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (215, 'Oils and Ghee');
+
+
+CREATE TABLE Supplier (
+    SupplierID NUMBER PRIMARY KEY,
+    SupplierName VARCHAR2(100)
+);
+
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9001, 'Arif Hossain');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9002, 'Hasan Ahmed');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9003, 'Rahman Ali');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9004, 'Karim Uddin');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9005, 'Jamil Rahman');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9006, 'Mahmud Hasan');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9007, 'Rafiq Ahmed');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9008, 'Imran Chowdhury');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9009, 'Anwar Hossain');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9010, 'Siddiqur Rahman');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9011, 'Faruk Ahmed');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9012, 'Kamal Uddin');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9013, 'Shahid Alam');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9014, 'Saiful Islam');
+INSERT INTO Supplier (SupplierID, SupplierName) VALUES (9015, 'Monir Hossain');
+
+
+CREATE TABLE SupplierContact (
+    SupplierID NUMBER,
+    ContactID NUMBER,
+    ContactDetails VARCHAR2(15),
+    PRIMARY KEY (SupplierID, ContactID),
+    FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID)
+);
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9001, 1, '8801712345678');
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9001, 2, '8801712346678');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9002, 3, '8801912345678');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9003, 4, '8801812345678');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9004, 5, '8801512345678');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9005, 6, '8801612345678');
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9005, 7, '8801812355578');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9006, 8, '8801312345678');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9007, 9, '8801712345679');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9008, 10, '8801912345679');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9009, 11, '8801812345679');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9010, 12, '8801512345679');
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9010, 13, '8801712347778');
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9010, 14, '8801719999999');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9011, 15, '8801612345679');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9012, 16, '8801312345679');
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9012, 17, '8801932345678');
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9012, 18, '8801712345444');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9013, 19, '8801712345680');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9014, 20, '8801912345680');
+
+INSERT INTO SupplierContact (SupplierID, ContactID, ContactDetails) VALUES (9015, 21, '8801812345680');
+
+
+
+CREATE TABLE SupplierDistrict (
+    DistrictID NUMBER PRIMARY KEY,
+    SupplierID NUMBER,
+    SupplierDistrict VARCHAR2(50),
+    FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID)
+);
+
+
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (1, 9001, 'Dhaka');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (2, 9002, 'Chittagong');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (3, 9003, 'Sylhet');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (4, 9004, 'Rajshahi');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (5, 9005, 'Khulna');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (6, 9006, 'Barisal');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (7, 9007, 'Rangpur');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (8, 9008, 'Comilla');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (9, 9009, 'Mymensingh');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (10, 9010, 'Cox''s Bazar');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (11, 9011, 'Bogura');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (12, 9012, 'Jessore');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (13, 9013, 'Tangail');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (14, 9014, 'Pabna');
+INSERT INTO SupplierDistrict (DistrictID, SupplierID, SupplierDistrict) VALUES (15, 9015, 'Noakhali');
+
+CREATE TABLE Manager (
+    MgrID NUMBER PRIMARY KEY,
+    MgrName VARCHAR2(50),
+    MgrContact VARCHAR2(15)
+);
+
+INSERT INTO Manager (MgrID, MgrName, MgrContact) VALUES (1, 'Arman Ahmed', '+880 1712 345678');
+INSERT INTO Manager (MgrID, MgrName, MgrContact) VALUES (2, 'Shaan Khan', '+880 1912 345678');
+INSERT INTO Manager (MgrID, MgrName, MgrContact) VALUES (3, 'Abir Osman', '+880 1812 345678');
+
+CREATE TABLE StoreBranch (
+    BranchID NUMBER PRIMARY KEY,
+    Location VARCHAR2(50),
+    MgrID NUMBER,
+    StockroomCapacity NUMBER,
+    CurrentStockLevels NUMBER,
+    FOREIGN KEY (MgrID) REFERENCES Manager(MgrID)
+);
+
+INSERT INTO StoreBranch (BranchID, Location, MgrID, StockroomCapacity, CurrentStockLevels) VALUES (101, 'Banani', 1, 40000, 10000);
+INSERT INTO StoreBranch (BranchID, Location, MgrID, StockroomCapacity, CurrentStockLevels) VALUES (102, 'Kuril', 2, 10000, 3000);
+INSERT INTO StoreBranch (BranchID, Location, MgrID, StockroomCapacity, CurrentStockLevels) VALUES (103, 'Uttara', 3, 35000, 21932);
+
+
+
